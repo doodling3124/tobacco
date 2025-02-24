@@ -19,12 +19,13 @@ import { Toast, Notification } from '@douyinfe/semi-ui';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const [loggedUser, setLoggedUser] = useState("");
     useEffect(() => {
         const loggedIn = localStorage.getItem("isLoggedIn") === "true";
         if (loggedIn) {
             setIsLoggedIn(true);
         }
+        setLoggedUser(localStorage.getItem("loggedUser"));
     }, []);
 
     // 登录函数
@@ -37,7 +38,9 @@ function App() {
             const is_success = await login(data);
             if (is_success == "true") {
                 localStorage.setItem("isLoggedIn", "true"); // 存储登录状态
+                localStorage.setItem("loggedUser", username);
                 setIsLoggedIn(true);
+                setLoggedUser(username);
                 return Toast.success('登录成功')
             } else {
                 return Notification.error({
@@ -70,7 +73,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/login" element={isLoggedIn ? (<Navigate to="/" replace />) : (<Login onLogin={handleLogin} />)} />
-                <Route path="/" element={isLoggedIn ? (<Home />) : (<Navigate to="/login" replace />)} >
+                <Route path="/" element={isLoggedIn ? (<Home loggedUser={loggedUser}/>) : (<Navigate to="/login" replace />)} >
                   <Route index element={<SalesAnalysis />} />
                   <Route path="sales-analysis" element={<SalesAnalysis />} />
                   <Route path="customer-analysis" element={<CustomerAnalysis />} />

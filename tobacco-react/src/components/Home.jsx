@@ -4,8 +4,6 @@ import {
     Layout,
     Nav,
     Button,
-    Breadcrumb,
-    Skeleton,
     Avatar,
     Icon,
 } from "@douyinfe/semi-ui";
@@ -18,8 +16,9 @@ import {
     IconSetting,
 } from "@douyinfe/semi-icons";
 import TobaccoIcon from "../assets/icon/TobaccoIcon";
+import { IconCascader, IconChart, IconGrid, IconLayout, IconModal, IconToast } from "@douyinfe/semi-icons-lab"
 
-function Home() {
+function Home({loggedUser}) {
     const { Header, Sider, Content } = Layout;
     const navigate = useNavigate();
     const handleNavSelect = (itemKey) => {
@@ -31,7 +30,7 @@ function Home() {
         <Layout
             style={{
                 border: "1px solid var(--semi-color-border)",
-                height: "100vh",
+                height: "110vh",
                 display: "flex",
                 flexDirection: "column",
             }}
@@ -70,7 +69,7 @@ function Home() {
                                 }}
                             />
                             <Avatar color="orange" size="small">
-                                YJ
+                                {loggedUser}
                             </Avatar>
                         </Nav.Footer>
                     </Nav>
@@ -86,32 +85,32 @@ function Home() {
                             {
                                 itemKey: "Sales-Analysis",
                                 text: "销量分析和结构分析",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconCascader size="large" />,
                             },
                             {
                                 itemKey: "Customer-Analysis",
                                 text: "客戶分析",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconChart size="large" />,
                             },
                             {
                                 itemKey: "Price-Monitoring",
                                 text: "价格监测",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconGrid size="large" />,
                             },
                             {
                                 itemKey: "Brand-Analysis",
                                 text: "品牌分析",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconLayout size="large" />,
                             },
                             {
                                 itemKey: "Sales-Forecast",
                                 text: "销量预测和库存建议",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconModal size="large" />,
                             },
                             {
                                 itemKey: "Promotions",
                                 text: "促销活动",
-                                icon: <IconHistogram size="large" />,
+                                icon: <IconToast size="large" />,
                             },
                         ]}
                         footer={{
@@ -128,6 +127,27 @@ function Home() {
                 >
                     <Outlet />
                 </Content>
+            </Layout>
+            <Layout
+                style={{
+                    flex: 0.01,
+                    justifyContent: 'space-between',
+                    padding: '20px',
+                    color: 'var(--semi-color-text-2)',
+                    backgroundColor: 'rgba(var(--semi-grey-0), 1)',
+                }}
+            >
+                <>
+                    <span
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
+                        {/* <IconBytedanceLogo size="large" style={{ marginRight: '8px' }} /> */}
+                        <span>Copyright © {new Date().getFullYear()} <a href="https://catblog.life">Pigking</a>. UI by <a href="https://semi.design/zh-CN/">Semi</a>.</span>
+                    </span>
+                </>
             </Layout>
         </Layout>
     );
