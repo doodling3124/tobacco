@@ -1,0 +1,57 @@
+.sales-analysis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.filter {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+    column-gap: 10px;
+}
+
+.selectBrand {
+    flex-shrink: 0;
+    width: 140px;
+    height: 32px;
+}
+
+.selectSpecification {
+    flex-shrink: 0;
+    width: 240px;
+    height: 32px;
+}
+
+.selectRegion {
+    flex-shrink: 0;
+    width: 160px;
+    height: 32px;
+}
+
+.datePickerTrigger {
+    flex-shrink: 0;
+    width: 230px;
+}
+
+.sales-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.raised-block {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
