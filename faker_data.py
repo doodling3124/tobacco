@@ -46,7 +46,7 @@ activity_info = {
 }
 
 # 向users表插入数据
-for _ in range(10):
+for _ in range(50):
     username = faker.name()
     password = faker.password(length=8)
     role = random.choice(roles)
