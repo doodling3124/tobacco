@@ -25,6 +25,12 @@
 
 > 执行 /sql/tobacco.sql
 
+### 假数据:
+
+```
+python fake_data.py
+```
+
 ### 后端:
 
 1. 修改配置文件数据库账号密码  /tobacco/tobacco-flask/edu/fjut/config.py
