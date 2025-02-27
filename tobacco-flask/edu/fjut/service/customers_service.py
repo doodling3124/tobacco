@@ -35,4 +35,5 @@ class Customers_Service:
             "main_selling_spec" : [{"specification" : f"{row[0]}/{row[1]}/{row[2]}", "value": main_spec_count[i]} for i, row in enumerate(data)],
             "order_full_rate": [{"date": row[3].strftime("%Y-%m"), "value": row[5]} for row in data]
         }
+        result["main_selling_spec"] = list({(d['specification'], d['value']): d for d in result.get("main_selling_spec")}.values())
         return result

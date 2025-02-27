@@ -10,10 +10,8 @@ import {
 import {
     IconBell,
     IconHelpCircle,
-    IconHome,
-    IconHistogram,
-    IconLive,
-    IconSetting,
+    IconMoon,
+    IconSun
 } from "@douyinfe/semi-icons";
 import TobaccoIcon from "../assets/icon/TobaccoIcon";
 import { IconCascader, IconChart, IconGrid, IconLayout, IconModal, IconToast } from "@douyinfe/semi-icons-lab"
@@ -52,6 +50,22 @@ function Home({loggedUser}) {
                             <span>烟草营销分析决策系统</span>
                         </span>
                         <Nav.Footer>
+                            {/* <Button
+                                theme="borderless"
+                                icon={<IconMoon size="large" />}
+                                style={{
+                                    color: "var(--semi-color-text-2)",
+                                    marginRight: "12px",
+                                }}
+                                onClick= {() => {
+                                    const body = document.body;
+                                    if (body.hasAttribute('theme-mode')) {
+                                        body.removeAttribute('theme-mode');
+                                    } else {
+                                        body.setAttribute('theme-mode', 'dark');
+                                    }
+                                }}
+                            /> */}
                             <Button
                                 theme="borderless"
                                 icon={<IconBell size="large" />}
